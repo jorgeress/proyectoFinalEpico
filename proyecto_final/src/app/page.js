@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
       <>
-        🎵 Spotify Taste Mixer
+        <button onClick={handleLogin}> Crear boton </button>
       </>  
   );
 }
