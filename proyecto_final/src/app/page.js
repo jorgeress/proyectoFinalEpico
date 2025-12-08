@@ -1,7 +1,4 @@
 'use client';
-
-
-
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated, getSpotifyAuthUrl } from '@/lib/auth';
@@ -10,10 +7,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // Si ya está autenticado, redirigir al dashboard
-    if (isAuthenticated()) {
-      router.push('/dashboard');
-    }
+    if (isAuthenticated()) router.push('/dashboard');
   }, [router]);
 
   const handleLogin = () => {
@@ -21,10 +15,12 @@ export default function Home() {
   };
 
   return (
-      <>
-        <button onClick={handleLogin}> Crear boton </button>
-      </>  
+    <div>
+      <h1>Spotify Taste Mixer</h1>
+      <button onClick={handleLogin}>Login con Spotify</button>
+    </div>
   );
 }
+
 
 
