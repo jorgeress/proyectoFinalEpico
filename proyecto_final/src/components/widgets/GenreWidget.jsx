@@ -5,7 +5,7 @@ import React from 'react';
 const availableGenres = [ 
   'pop', 
   'rock', 
-  'hip-hop', // ⬅️ Usar el término más común: 'hip hop' (con espacio)
+  'hip-hop', 
   'electronic', 
   'indie', 
   'r&b', 
@@ -26,7 +26,7 @@ const availableGenres = [
 export default function GenreWidget({ selectedGenres, onUpdate }) {
   
   const handleToggle = (genre) => {
-    // Si ya está seleccionado, lo quita. Si no, lo añade.
+    
     const newGenres = selectedGenres.includes(genre)
       ? selectedGenres.filter(g => g !== genre)
       : [...selectedGenres, genre];
