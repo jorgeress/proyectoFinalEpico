@@ -20,6 +20,7 @@ import ArtistWidget from '@/components/widgets/ArtistWidget';
 import PopularityWidget from '@/components/widgets/PopularityWidget';
 import DecadeWidget from '@/components/widgets/DecadeWidget';
 import TrackWidget from '@/components/widgets/TrackWidget'; 
+import LimitWidget from '@/components/widgets/LimitWidget';
 
 // --- 1. Estado Inicial ---
 const initialPreferences = {
@@ -28,7 +29,7 @@ const initialPreferences = {
     tracks: [], 
     popularity: [50, 100], 
     decades: ['2000', '2010', '2020'],
-    
+    playlistLimit: 30,
 };
 
 
@@ -81,11 +82,7 @@ export default function DashboardPage() {
     const handleGenerate = async () => {
         setLoadingPlaylist(true);
         setError(null);
-        if (preferences.genres.length === 0) {
-            setError("Selecciona al menos un género.");
-            setLoadingPlaylist(false);
-            return;
-        }
+        
 
         try {
             const newTracks = await generatePlaylist(preferences);
@@ -207,27 +204,30 @@ const handleSavePlaylist = async () => {
                         selectedTracks={preferences.tracks} 
                         onUpdate={tracks => updatePreferences('tracks', tracks)} 
                     />
+
                     
+                     <LimitWidget
+                        limit={preferences.playlistLimit}
+                        onUpdate={limit => updatePreferences('playlistLimit', limit)}
+                     />
                 </div>
                 
-                {/* BOTÓN PRINCIPAL DE GENERACIÓN */}
+                
                 <div className="text-center my-8">
                     <button
                         onClick={handleGenerate}
-                        disabled={loadingPlaylist || preferences.genres.length === 0}
+                        disabled={loadingPlaylist}
                         className="px-10 py-4 text-xl font-bold rounded-full bg-green-500 text-gray-900 
                                 hover:bg-green-400 transition-transform transform hover:scale-105 disabled:opacity-50"
                     >
                         {loadingPlaylist ? 'Generando...' : 'Generar Playlist'}
                     </button>
-                    {preferences.genres.length === 0 && (
-                        <p className="text-red-400 mt-2">Selecciona al menos un género para generar la playlist.</p>
-                    )}
+                    
                 </div>
 
                 <hr className="border-gray-700 my-8" />
                 
-                {/* SECCIÓN DE VISUALIZACIÓN DE PLAYLIST */}
+                
                 {error && (
                     <div className="bg-red-900 text-red-300 p-4 rounded mb-6">{error}</div>
                 )}

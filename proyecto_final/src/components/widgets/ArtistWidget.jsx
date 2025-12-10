@@ -58,12 +58,9 @@ export default function ArtistWidget({ selectedArtists, onUpdate }) {
 
   return (
     <div className="bg-gray-800 p-4 rounded-xl shadow-lg h-full">
-      {/* Título solo con texto y guiones */}
       <h3 className="text-xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">Artistas Favoritos - Selección ({selectedArtists.length}/{MAX_SELECTION})</h3>
       
-      {/* Barra de Búsqueda */}
       <div className="relative mb-3">
-        {/* Emoji visible 🔍 */}
         <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lg text-gray-400">🔍</span>
         
         <input
@@ -75,7 +72,6 @@ export default function ArtistWidget({ selectedArtists, onUpdate }) {
         />
       </div>
 
-      {/* Resultados y Seleccionados */}
       <div className="h-48 overflow-y-auto space-y-2 pr-2">
         {loading && <p className="text-center text-green-500">Buscando...</p>}
         
@@ -105,7 +101,6 @@ export default function ArtistWidget({ selectedArtists, onUpdate }) {
         )}
       </div>
       
-      {/* Artistas Seleccionados (Visualización Opcional) */}
       <div className="mt-4 pt-3 border-t border-gray-700">
         <p className="text-sm font-medium text-gray-300 mb-2">Seleccionados:</p>
         <div className="flex flex-wrap gap-2">
