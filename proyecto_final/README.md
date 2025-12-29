@@ -25,7 +25,7 @@ La aplicación se organiza en **Widgets especializados** que permiten un control
 ## 🛠️ Stack Tecnológico
 
 * **Frontend:** [Next.js](https://nextjs.org/) (React)
-* **Estilos:** CSS3 con PostCSS y diseño responsive.
+* **Estilos:** CSS3 con Tailwind y diseño responsive.
 * **Integración:** [Spotify Web API](https://developer.spotify.com/documentation/web-api/) para autenticación y gestión de datos.
 * **Calidad de Código:** ESLint para mantener estándares de desarrollo.
 
@@ -42,10 +42,8 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 ### 2. Clonar y configurar
 ```bash
 # Clonar el repositorio
-git clone [https://github.com/tu-usuario/nombre-del-repo.git](https://github.com/tu-usuario/nombre-del-repo.git)
 
 # Entrar en la carpeta
-cd nombre-del-repo
 
 # Instalar las dependencias
 npm install
