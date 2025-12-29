@@ -41,11 +41,11 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
 ### 2. Clonar y configurar
 
-# Clonar el repositorio
+Clonar el repositorio
 
-# Entrar en la carpeta
+Entrar en la carpeta
 
-# Instalar las dependencias
+Instalar las dependencias
 
 npm install
 
